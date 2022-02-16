@@ -1,0 +1,2 @@
+Nom de l'image : 2006
+Chemin de destination : uploads/mondiali-2006.jpg
