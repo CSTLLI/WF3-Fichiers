@@ -41,7 +41,7 @@
 		$target_dir_images = "./uploads/";
 		$target_dir_desc = "./desc/";
 
-		$target_file = $target_dir_images . $_FILES['image']['full_path'];
+		$target_file = $target_dir_images . $_FILES['image']['name'];
 		// echo $target_file;
 
 		//# Deplacement de l'image vers le dossier uploads

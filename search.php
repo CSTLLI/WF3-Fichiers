@@ -38,7 +38,7 @@
 		$target_file = $target_dir_desc . $file . '.txt';
 		$path = file_get_contents($target_file);
 
-		$path_file = strstr($path, "uploads");
+		$path_file = strstr($path, "./uploads/");
 		// echo $path_file;
 
 		echo "<img class='w-50' src='" . $path_file ."'>";	
