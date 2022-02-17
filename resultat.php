@@ -36,15 +36,18 @@
 	// echo var_dump($_FILES);
 	// echo "</pre>";
 
-	if (isset($_FILES['image']) && str_contains($_FILES['image']['type'], "image")){
-
+	if ( isset($_FILES['image']) && substr($_FILES['image']['type'],0,6) === "image/" ){
 		//# Creation des variables
-		$target_dir_images = "uploads/";
-		$target_dir_desc = "desc/";
+		$target_dir_images = "./uploads/";
+		$target_dir_desc = "./desc/";
+
 		$target_file = $target_dir_images . $_FILES['image']['full_path'];
 		// echo $target_file;
 
 		//# Deplacement de l'image vers le dossier uploads
+		
+		//echo $_FILES['image']['tmp_name'];
+
 		if(move_uploaded_file($_FILES['image']['tmp_name'],$target_file)){
 
 			$file_name = $_POST['name'];
@@ -59,7 +62,7 @@
 
 			echo "Transfert effectué avec succès!";
 		}else {
-			echo "Erreur sur le transfert.";
+			echo "Erreur sur le transfert :(";
 		}
 	}else{
 		echo "Format du fichier non accepté.";
