@@ -41,7 +41,7 @@
 		$path_file = strstr($path, "uploads");
 		// echo $path_file;
 
-		echo "<img class='w-50 h-50' src='" . $path_file ."'>";	
+		echo "<img class='w-50' src='" . $path_file ."'>";	
 		echo $path;	
 	}else {
 		echo "Image non trouvée.";
