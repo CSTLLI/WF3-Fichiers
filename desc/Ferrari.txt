@@ -1,2 +1,0 @@
-Nom de l'image : Ferrari
-Chemin de destination : uploads/red-ferrari-5120x1440.jpg

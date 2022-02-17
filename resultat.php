@@ -44,18 +44,19 @@
 		$target_file = $target_dir_images . $_FILES['image']['full_path'];
 		// echo $target_file;
 
-		$file_name = $_POST['name'];
-		// echo $file_name;
-
-		//# Creation du fichier txt en copiant les données de l'image
-		$txt_file = fopen($target_dir_desc . $file_name . '.txt', 'w');
-		$txt_content = "Nom de l'image : " . $file_name . "\n" . "Chemin de destination : " . $target_file;
-
-		fwrite($txt_file, $txt_content);
-		fclose($txt_file);	
-
 		//# Deplacement de l'image vers le dossier uploads
 		if(move_uploaded_file($_FILES['image']['tmp_name'],$target_file)){
+
+			$file_name = $_POST['name'];
+			// echo $file_name;
+
+			//# Creation du fichier txt en copiant les données de l'image
+			$txt_file = fopen($target_dir_desc . $file_name . '.txt', 'w');
+			$txt_content = "Nom de l'image : " . $file_name . "\n" . "Chemin de destination : " . $target_file;
+
+			fwrite($txt_file, $txt_content);
+			fclose($txt_file);	
+
 			echo "Transfert effectué avec succès!";
 		}else {
 			echo "Erreur sur le transfert.";
