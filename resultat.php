@@ -1,6 +1,6 @@
 <!--**************************************************************************************-->
 <!-- 																					  -->
-<!-- Project: Fichiers		                            / $$      /$$ /$$$$$$$$ /$$$$$$   -->
+<!-- Project: Array  		                            / $$      /$$ /$$$$$$$$ /$$$$$$   -->
 <!--                  			                        | $$  /$ | $$| $$_____//$$__  $$  -->
 <!-- resultat.php                                  	    | $$ /$$$| $$| $$     |__/  \ $$  -->
 <!--                                                  	| $$/$$ $$ $$| $$$$$     /$$$$$/  -->
@@ -17,7 +17,7 @@
 		<meta charset="UTF-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-		<title>Enregistrement effectué</title>
+		<title>Utilisateur trouvé</title>
 
 		<meta name="description" content="">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -36,37 +36,39 @@
 	// echo var_dump($_FILES);
 	// echo "</pre>";
 
-	if ( isset($_FILES['image']) && substr($_FILES['image']['type'],0,6) === "image/" ){
-		//# Creation des variables
-		$target_dir_images = "./uploads/";
-		$target_dir_desc = "./desc/";
+	$users = array(
+		array("Jean", "Todt", "jeantodt@gmail.com", "FerrariForever"),
+		array("Charles", "Leclerc", "charlesleclerc@gmail.com", "FerrariForever"),
+		array("Charlotte", "Leclerc", "charlesleclerc@gmail.com", "FerrariForever"),
+		array("Carlos", "Sainz", "jcarlossainz@gmail.com", "FerrariForever")
+	);
 
-		$target_file = $target_dir_images . $_FILES['image']['full_path'];
-		// echo $target_file;
+	if (isset($_POST['name'])){
 
-		//# Deplacement de l'image vers le dossier uploads
-		
-		//echo $_FILES['image']['tmp_name'];
+		// echo "<pre>";
+		// echo print_r($users);
+		// echo "</pre>";
 
-		if(move_uploaded_file($_FILES['image']['tmp_name'],$target_file)){
+		$inputName = $_POST['name'];
+		$error = 1;
 
-			$file_name = $_POST['name'];
-			// echo $file_name;
+		forEach ($users as $user){
+			if ($user[1] == $inputName){
+				$error = 0;
 
-			//# Creation du fichier txt en copiant les données de l'image
-			$txt_file = fopen($target_dir_desc . $file_name . '.txt', 'w');
-			$txt_content = "Nom de l'image : " . $file_name . "\n" . "Chemin de destination : " . $target_file;
+				echo "<div class='card border border-1'>";
 
-			fwrite($txt_file, $txt_content);
-			fclose($txt_file);	
+				for ($i = 0; $i <= count($user); $i++){
+					echo "<p>" . $user[$i] . "</p>";
+				}
 
-			echo "Transfert effectué avec succès!";
-		}else {
-			echo "Erreur sur le transfert :(";
+				echo "</div>";
+			}
 		}
-	}else{
-		echo "Format du fichier non accepté.";
-	}
 
+		if ($error != 0){
+			echo "User non trouvé.";
+		}
+	}
 	echo "\n <a class='fs-3 fw-bold' href='index.php'>Revenir à l'accueil</a>";
 ?>

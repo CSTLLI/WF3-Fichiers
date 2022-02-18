@@ -1,13 +1,13 @@
 <!--**************************************************************************************-->
 <!-- 																					  -->
-<!-- Project: Fichies                                   / $$      /$$ /$$$$$$$$ /$$$$$$   -->
+<!-- Project: Array	                                    / $$      /$$ /$$$$$$$$ /$$$$$$   -->
 <!--                  			                        | $$  /$ | $$| $$_____//$$__  $$  -->
 <!-- index.php                                    	    | $$ /$$$| $$| $$     |__/  \ $$  -->
 <!--                                                  	| $$/$$ $$ $$| $$$$$     /$$$$$/  -->
 <!-- By: vcastell <valeriocastellipro@gmail.com>	    | $$$$_  $$$$| $$__/    |___  $$  -->
 <!--                                              		| $$$/ \  $$$| $$      /$$  \ $$  -->
-<!-- Created: 2022/02/16 10:41:35 vcastell   	        | $$/   \  $$| $$     |  $$$$$$/  -->
-<!-- Updated: 2022/02/16 23:29:28 vcastell              |__/     \__/|__/      \______/   -->
+<!-- Created: 2022/02/17 10:41:35 vcastell   	        | $$/   \  $$| $$     |  $$$$$$/  -->
+<!-- Updated: 2022/02/17 23:29:28 vcastell              |__/     \__/|__/      \______/   -->
 <!--                                                                     				  -->
 <!--**************************************************************************************-->
 
@@ -17,7 +17,7 @@
 		<meta charset="UTF-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-		<title>Fichiers</title>
+		<title>Utilisateurs</title>
 
 		<meta name="description" content="">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -28,22 +28,13 @@
 
 	<body class="border border-3 border-radius-2 container d-flex d-flex flex-column gap-5 text-center justify-content-center align-items-center vh-100">
 
-		<h1>Fichiers</h1>
+		<h1>Utilisateurs</h1>
 
 		<form action="resultat.php" method="post" enctype="multipart/form-data">
 			<div class="d-flex flex-column gap-3">
 				<input type="text" placeholder="Nom" name="name" id="name">
-				<input type="file" name="image" id="image">
 
-				<button type="submit">Envoyer l'image</button>
-			</div>
-		</form>
-
-		<form action="search.php" method="post" enctype="multipart/form-data">
-			<div class="d-flex flex-column gap-3">
-				<input type="text" placeholder="Nom" name="search_name" id="search_name">
-
-				<button type="submit">Rechercher l'image</button>
+				<button type="submit">Rechercher l'utilisateur</button>
 			</div>
 		</form>
 	</body>
